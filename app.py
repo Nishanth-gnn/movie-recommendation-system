@@ -13,7 +13,7 @@ def fetch_poster(movie_id):
 
 def recommend(movie):
     index = movies[movies['title'] == movie].index[0]
-    with zipfile.ZipFile('similarity.ZIP', 'r') as zip_ref:
+    with zipfile.ZipFile('similarity.zip', 'r') as zip_ref:
         with zip_ref.open('similarity.pkl') as file:
             similarity = pickle.load(file)
     distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
